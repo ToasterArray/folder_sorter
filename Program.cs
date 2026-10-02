@@ -1,4 +1,6 @@
-﻿using System;
+﻿//TODO: add proper filtering not just wildcards
+
+using System;
 using System.IO;
 
 internal static class Program
@@ -27,7 +29,7 @@ internal static class Program
             }
         }
 
-        // handle empty required args
+        #region validation
         if (dir is null || folder is null || filter is null)
         {
             Console.WriteLine("Missing required arguments.");
@@ -46,6 +48,7 @@ internal static class Program
             Console.Error.WriteLine("Folder name contains invalid characters.");
             return 1;
         }
+        #endregion
 
         string targetDir = Path.Combine(dir, folder);
 
